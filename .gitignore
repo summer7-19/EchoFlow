@@ -1,0 +1,26 @@
+# Dependencies
+node_modules/
+
+# Build output
+dist/
+*.tsbuildinfo
+
+# Environment files (never commit secrets)
+.env
+.env.*
+!.env.example
+
+# Runtime storage (user audio files)
+backend/storage/*
+
+# Python virtualenv / caches
+backend/asr_engine/venv/
+**/__pycache__/
+*.pyc
+
+# Local tooling / artifacts
+frontend/.claude/
+.chrome-smoke/
+*.log
+.DS_Store
+Thumbs.db

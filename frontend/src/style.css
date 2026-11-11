@@ -1,0 +1,204 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&family=Noto+Sans+SC:wght@400;500;600;700&display=swap');
+
+/* ---------------------------------------------------------------------------
+   Global tokens, reset and cross-component utilities.
+   Component-specific styles live in their own .vue files.
+--------------------------------------------------------------------------- */
+
+:root {
+    font-family: 'DM Sans', 'Noto Sans SC', sans-serif;
+    color: #29352f;
+    background: #f6f7f5;
+    font-synthesis: none;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    --ink: #29352f;
+    --muted: #8b9690;
+    --line: #edf0ed;
+    --green: #397e5b;
+    --pale: #f7faf7;
+}
+
+::-webkit-scrollbar {
+    width: 9px;
+    height: 9px;
+}
+
+::-webkit-scrollbar-track {
+    background-color: transparent;
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #b1c6b1;
+    border-radius: 6px;
+    border: 2px solid transparent;
+    background-clip: content-box;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    min-width: 360px;
+    background: #f6f7f5;
+}
+
+button {
+    font: inherit;
+    color: inherit;
+    border: 0;
+    background: none;
+    cursor: pointer;
+}
+
+/* Shared typographic label, used by dashboard, workbench and auth views. */
+.tiny-label {
+    font-size: 8px;
+    letter-spacing: 1px;
+    color: #9aa49d;
+    font-weight: 700;
+}
+
+/* Shared icon button: top bar, workbench header and side panel. */
+.icon-btn {
+    color: #78847c;
+    display: grid;
+    place-items: center;
+    width: 31px;
+    height: 31px;
+    border-radius: 8px;
+}
+
+.icon-btn:hover {
+    background: #f3f6f3;
+}
+
+/* Shared alert glyph: medication safety card and side warning panel. */
+.alert-symbol {
+    width: 16px;
+    height: 16px;
+    flex: 0 0 16px;
+    background: #f6e1d8;
+    color: #c47a5d;
+    border-radius: 50%;
+    display: grid;
+    place-items: center;
+    font-size: 10px;
+    font-weight: 700;
+}
+
+/* Brand lockup: top bar and auth screen. */
+.brand-mark {
+    width: 29px;
+    height: 29px;
+    background: #2f6048;
+    color: #fff;
+    display: grid;
+    place-items: center;
+    border-radius: 9px;
+}
+
+.brand-name {
+    font: 800 19px Manrope, sans-serif;
+    letter-spacing: -.8px;
+}
+
+.brand-name span {
+    color: #659779;
+}
+
+.brand-cn {
+    font-size: 13px;
+    color: #89938d;
+    letter-spacing: 1px;
+}
+
+/* Scene canvas shared by all four workbench scenes. */
+.scene-content {
+    padding: 20px 23px 22px;
+}
+
+.alternative-scene {
+    min-height: 520px;
+}
+
+.scene-title-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+.scene-title-row h3 {
+    font-size: 17px;
+    margin: 7px 0 4px;
+}
+
+.scene-title-row p {
+    font-size: 10px;
+    color: #929d95;
+    margin: 0;
+}
+
+/* Shared auth feedback + submit button (auth page and profile dialog). */
+.auth-error {
+    color: #b85d4e;
+    background: #fff5f2;
+    border: 1px solid #f2ded7;
+    border-radius: 6px;
+    padding: 9px 11px;
+    font-size: 11px;
+    margin: 12px 0 0;
+}
+
+.auth-notice {
+    color: #477b56;
+    text-align: center;
+    font-size: 12px;
+}
+
+.auth-submit {
+    height: 45px;
+    margin-top: 5px;
+    background: #386f50;
+    color: #fff;
+    border-radius: 7px;
+    font-size: 13px;
+}
+
+.auth-submit:disabled {
+    opacity: .7;
+    cursor: wait;
+}
+
+/* The workbench globally lifts chart and utility labels by 2px. */
+.workbench-card * {
+    --workbench-font-bump: 2px;
+}
+
+.tiny-label {
+    font-size: calc(10px + var(--workbench-font-bump, -2px));
+}
+
+@media(max-width:1000px) {
+    .main-pane .scene-content {
+        padding-left: 16px;
+        padding-right: 16px;
+    }
+}
+
+@media(max-width:720px) {
+    .workbench-card .scene-tab {
+        font-size: 12px;
+    }
+
+    .scene-content {
+        padding: 15px 13px 18px;
+    }
+
+    .alternative-scene {
+        min-height: 430px;
+    }
+}

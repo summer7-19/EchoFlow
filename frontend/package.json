@@ -1,0 +1,21 @@
+{
+  "name": "echoflow-frontend",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vue-tsc -b && vite build",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "@vitejs/plugin-vue": "latest",
+    "axios": "^1.20.0",
+    "lucide-vue-next": "latest",
+    "typescript": "^5.8.3",
+    "vite": "latest",
+    "vue": "latest",
+    "vue-router": "^4.6.4",
+    "vue-tsc": "latest"
+  }
+}

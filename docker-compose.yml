@@ -1,0 +1,23 @@
+services:
+  frontend:
+    build: ./frontend
+    ports: ["5174:5174"]
+    depends_on: [backend]
+  backend:
+    build: ./backend
+    ports: ["3001:3001"]
+    env_file: ./backend/.env
+    environment:
+      REDIS_URL: redis://redis:6379
+    depends_on: [mysql, redis]
+  mysql:
+    image: mysql:8.4
+    environment:
+      MYSQL_DATABASE: echoflow
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD:-change-me}
+    volumes: ["mysql-data:/var/lib/mysql"]
+  redis:
+    image: redis:7-alpine
+    ports: ["6380:6379"]
+volumes:
+  mysql-data:
